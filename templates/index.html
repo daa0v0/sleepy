@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user }} Alive?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <!-- 标题 -->
+        <a style="font-size: 2em;"><ruby>似<rt>sǐ</rt></ruby>了吗?</a>
+        <div style="height: 20px;"></div>
+
+        <!-- 手机和电脑状态 -->
+        <a class="{{ phone_status_color }}">{{ user }}'s 手机: {{ phone_status_name }}</a>
+        <br>
+        <a class="{{ pc_status_color }}">{{ user }}'s 电脑: {{ pc_status_name }}</a>
+        <br>
+        <a id="combined-desc" style="font-size: 1em;">{{ combined_desc }}</a>
+        <br>
+        <a id="updated-time" style="font-size: 0.8em; color: gray;">{{ updated_at }}</a>
+
+        <div style="height: 10px;"></div>
+
+        <!-- 更多内容 -->
+        {{ more_text | safe }}
+        <div style="height: 40px;"></div>
+
+        <!-- 提示和链接 -->
+        <a>你可以通过这个页面视奸 {{ user }}。
+            <br>
+            <a href="{{ repo }}" target="_blank" style="color: rgb(0, 255, 0);">
+                {{ learn_more }}
+            </a>
+        </a>
+    </div>
+</body>
+
+
+<script>
+    let lastAnName = "{{ status_name }}";
+    let lastPcName = "{{ pc_status_name }}";
+
+    // 定时检查状态变化
+    function checkForUpdates() {
+        fetch('/query')  // 调用后端的 /query 接口获取当前状态
+            .then(response => response.json())
+            .then(data => {
+                const anName = data.info.name || "";
+                const pcName = data.info.pc_name || "";
+
+                // 检查 an_name 是否更新
+                if (anName !== lastAnName) {
+                    console.log("an_name 更新，刷新页面");
+                    window.location.reload();
+                }
+
+                // 检查 pc_name 是否更新
+                if (pcName !== lastPcName) {
+                    console.log("pc_name 更新，刷新页面");
+                    window.location.reload();
+                }
+            })
+            .catch(error => console.error("检查更新失败:", error));
+    }
+
+    // 每5秒检查一次
+    setInterval(checkForUpdates, 5000);
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+/* 基本样式 */
+html {
+    font-size: 25px;
+}
+
+rt {
+    font-size: 0.6em;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto; /* 允许滚动 */
+}
+
+body {
+    background: url('{{ bg }}') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 卡片样式 */
+.card {
+    background-color: rgba(255, 255, 255, {{ alpha }});
+    border-radius: 20px;
+    padding: 30px; /* 减小 padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%; /* 限制最大宽度 */
+    box-sizing: border-box;
+}
+
+/* 响应式设计：小屏幕优化 */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 18px; /* 缩小字体大小 */
+    }
+
+    .card {
+        padding: 15px; /* 缩小内边距 */
+        border-radius: 10px; /* 缩小圆角 */
+    }
+
+    a {
+        font-size: 0.9em; /* 缩小链接字体 */
+    }
+}
+
+/* 以下为各种状态的颜色 */
+
+.sleeping {
+    color: gray;
+}
+
+.awake {
+    color: rgb(16, 128, 0);
+}
+
+.error {
+    color: red;
+}

@@ -1,0 +1,49 @@
+{
+    "version": 2,
+    "debug": false,
+    "host": "0.0.0.0",
+    "port": 2233,
+    "secret": "yoursecret",
+    "other": {
+        "user": "大鹅",
+        "background": "none", 
+        "alpha": 0.85,
+        "learn_more": "bilibili",
+        "repo": "https://b23.tv/fltFPpj",
+        "more_text": "直播间号:1718153842"
+    },
+    "an_status": 0,
+    "an_app_name": "系统桌面",
+    "an_status_list": [
+        {
+            "id": 0,
+            "an_name": "APP_AN",
+            "an_desc": "目前手机使用的应用，大概率在玩手机摸鱼。",
+            "an_color": "awake",
+            "updated_at": "2024-12-18 20:48:20"
+        },
+        {
+            "id": 1,
+            "an_name": "似了",
+            "an_desc": "睡似了或其他原因不在线，紧急情况请使用电话联系。",
+            "an_color": "sleeping"
+        }
+    ],
+    "pc_status": 0,
+    "pc_app_name": "系统桌面",
+    "pc_status_list": [
+        {
+            "id": 0,
+            "pc_name": "APP_PC",
+            "pc_desc": "目前电脑使用的应用，大概率在打电动摸鱼。",
+            "pc_color": "awake",
+            "updated_at": "2024-12-18 20:49:29"
+        },
+        {
+            "id": 1,
+            "pc_name": "似了",
+            "pc_desc": "睡似了或其他原因不在线，紧急情况请使用电话联系。",
+            "pc_color": "sleeping"
+        }
+    ]
+}
